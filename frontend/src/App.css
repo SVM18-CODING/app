@@ -1,34 +1,154 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* App-specific styles */
+
+/* Glass header */
+.glass-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e7e5e4;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Subject card colors */
+.subject-maths { border-top-color: #2563eb; }
+.subject-pdsp { border-top-color: #9333ea; }
+.subject-dvlsi { border-top-color: #16a34a; }
+.subject-control { border-top-color: #ea580c; }
+.subject-emft { border-top-color: #db2777; }
+
+/* Progress bar colors */
+.progress-maths { background-color: #2563eb; }
+.progress-pdsp { background-color: #9333ea; }
+.progress-dvlsi { background-color: #16a34a; }
+.progress-control { background-color: #ea580c; }
+.progress-emft { background-color: #db2777; }
+
+/* Achievement badge styles */
+.achievement-locked {
+  filter: grayscale(100%);
+  opacity: 0.5;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.achievement-unlocked {
+  filter: none;
+  opacity: 1;
 }
 
-.App-link {
-    color: #61dafb;
+/* Timer states */
+.timer-focus {
+  color: #ef4444;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.timer-break {
+  color: #22c55e;
+}
+
+/* Checkbox custom styles */
+.unit-checkbox {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.unit-checkbox[data-state="checked"] {
+  background-color: currentColor;
+  border-color: currentColor;
+}
+
+/* Navigation active state */
+.nav-link {
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+/* Bento grid layout helpers */
+.bento-hero {
+  grid-column: span 12;
+}
+
+@media (min-width: 768px) {
+  .bento-hero {
+    grid-column: span 8;
+    grid-row: span 2;
+  }
+  
+  .bento-stats {
+    grid-column: span 4;
+  }
+  
+  .bento-timer {
+    grid-column: span 4;
+  }
+  
+  .bento-subject {
+    grid-column: span 4;
+  }
+}
+
+/* Timer ring animation */
+@keyframes timer-tick {
+  0% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.timer-ring {
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+/* Confetti effect for achievements */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  animation: confetti-fall 3s ease-out forwards;
+}
+
+/* Tooltip styles */
+.tooltip-content {
+  background: #1c1917;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(90deg, #f5f5f4 25%, #e7e5e4 50%, #f5f5f4 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Toast custom styles */
+.toast-success {
+  background: #dcfce7;
+  border-color: #16a34a;
+  color: #166534;
+}
+
+.toast-achievement {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-color: #eab308;
+  color: #854d0e;
 }
