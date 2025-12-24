@@ -1,0 +1,150 @@
+{
+  "identity": {
+    "persona": "E1: The Anti-AI Designer",
+    "philosophy": "Fusion over Imitation. Emotion First. Asymmetry. Texture > Gloss.",
+    "tone": "Academic Arcade - Structured but Dopamine-Inducing."
+  },
+  "typography": {
+    "headings": {
+      "family": "Space Grotesk, sans-serif",
+      "weights": ["600", "700"],
+      "usage": "Page titles, Subject names, Level indicators",
+      "letterSpacing": "-0.03em"
+    },
+    "body": {
+      "family": "Plus Jakarta Sans, sans-serif",
+      "weights": ["400", "500", "600"],
+      "usage": "UI elements, descriptions, checklists"
+    },
+    "mono": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["400"],
+      "usage": "Timers, XP values, Stats, Progress percentages"
+    }
+  },
+  "colors": {
+    "palette": {
+      "background": "#fafaf9",
+      "surface": "#ffffff",
+      "surface_highlight": "#f5f5f4",
+      "text_primary": "#1c1917",
+      "text_secondary": "#78716c",
+      "border": "#e7e5e4"
+    },
+    "subjects": {
+      "MATHS": {
+        "primary": "#2563eb",
+        "accent": "#dbeafe",
+        "gradient": "from-blue-600 to-indigo-600"
+      },
+      "PDSP": {
+        "primary": "#9333ea",
+        "accent": "#f3e8ff",
+        "gradient": "from-purple-600 to-fuchsia-600"
+      },
+      "DVLSI": {
+        "primary": "#16a34a",
+        "accent": "#dcfce7",
+        "gradient": "from-green-600 to-emerald-600"
+      },
+      "CONTROL SYSTEM": {
+        "primary": "#ea580c",
+        "accent": "#ffedd5",
+        "gradient": "from-orange-600 to-amber-600"
+      },
+      "EMFT": {
+        "primary": "#db2777",
+        "accent": "#fce7f3",
+        "gradient": "from-pink-600 to-rose-600"
+      }
+    },
+    "gamification": {
+      "xp": "#eab308",
+      "streak": "#f97316",
+      "timer_focus": "#ef4444",
+      "timer_break": "#22c55e"
+    }
+  },
+  "visual_enhancers": {
+    "texture": "Add a fixed 'noise' overlay at 2% opacity to the entire body to kill the digital flatness.",
+    "shadows": "Use 'shadow-sm' for cards, but 'shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]' for primary buttons (Neo-Brutalist touch).",
+    "borders": "All cards must have 'border border-stone-200'. No floating borderless cards.",
+    "glass": "Header must be 'bg-white/80 backdrop-blur-md border-b border-stone-200'."
+  },
+  "grids": {
+    "dashboard": {
+      "type": "Bento",
+      "columns": "grid-cols-1 md:grid-cols-12",
+      "gap": "gap-6",
+      "areas": [
+        "Hero/Overall Progress: col-span-full md:col-span-8 row-span-2",
+        "Streak/Stats: col-span-full md:col-span-4 row-span-1",
+        "Timer Widget: col-span-full md:col-span-4 row-span-1",
+        "Subject Cards: col-span-full md:col-span-4 (each)"
+      ]
+    }
+  },
+  "components": {
+    "SubjectCard": {
+      "path": "src/components/SubjectCard.js",
+      "style": "Card with top colored border (subject color). Image used as a subtle watermark or header background. Progress bar prominent at bottom.",
+      "interaction": "Hover: lift up 2px, shadow deepens."
+    },
+    "XPBar": {
+      "path": "src/components/XPBar.js",
+      "style": "Thick bar (h-4 or h-6). Striped animated background for 'filling' effect. Display 'Level X' prominently.",
+      "animation": "Smooth width transition."
+    },
+    "PomodoroTimer": {
+      "path": "src/components/PomodoroTimer.js",
+      "style": "Floating or Fixed widget. Large Mono font for numbers. Circular progress indicator.",
+      "modes": ["Focus (25/50/90)", "Short Break (5/10)", "Long Break (15)"]
+    },
+    "AchievementBadge": {
+      "path": "src/components/AchievementBadge.js",
+      "style": "Hexagonal or Circular frame. Grayscale when locked, Full color + Glow when unlocked."
+    }
+  },
+  "image_urls": {
+    "subjects": {
+      "MATHS": "https://images.pexels.com/photos/7233188/pexels-photo-7233188.jpeg",
+      "PDSP": "https://images.pexels.com/photos/18068747/pexels-photo-18068747.png",
+      "DVLSI": "https://images.pexels.com/photos/35348462/pexels-photo-35348462.jpeg",
+      "CONTROL SYSTEM": "https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg",
+      "EMFT": "https://images.pexels.com/photos/2996279/pexels-photo-2996279.jpeg"
+    },
+    "gamification": {
+      "trophy": "https://images.pexels.com/photos/6565252/pexels-photo-6565252.jpeg",
+      "timer_bg": "https://images.pexels.com/photos/17484975/pexels-photo-17484975.png"
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. Install 'lucide-react' for icons (Zap, Trophy, Clock, CheckCircle, BookOpen).",
+    "2. Use 'recharts' for the Overall Progress chart (Simple RadialBar or PieChart).",
+    "3. Implement the 'Bento' grid layout strictly. Do not make everything equal width.",
+    "4. Use the provided image URLs as 'cover' images for subject cards (height 120px, object-cover).",
+    "5. Ensure the 'Pomodoro Timer' persists or is easily accessible from any page.",
+    "6. Gamification Logic: XP = (Units Completed * 100) + (Streak Days * 10).",
+    "7. Theme: LIGHT MODE ONLY. Do not implement dark mode toggle unless requested. Focus on the 'Stone/Paper' aesthetic."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy",
+    "Use glass-morphism effects with backdrop filters (12-24px blur)",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file. This disrupts the human natural reading flow of text",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯📚🎭🎬🎪🎉🎊🎁🎀🎂🍰🎈🎨🎰💰💵💳🏦💎🪙💸🤑📊📈📉💹🔢🏆🥇 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories (especially sponsor logos) = main agent will use placeholder text which is FORBIDDEN",
+    "Prioritize using pre-existing components from src/components/ui when applicable",
+    "Create new components that match the style and conventions of existing components when needed",
+    "Examine existing components to understand the project's component patterns before creating new ones",
+    "Components MUST use named exports (export const ComponentName = ...)",
+    "Pages MUST use default exports (export default function PageName() {...})",
+    "Use 'sonner' for toasts. Sonner component are located in /app/src/components/ui/sonner.tsx"
+  ]
+}
